@@ -1,0 +1,36 @@
+[
+  {
+    "id": "crazing_1",
+    "name": "龟裂示例",
+    "url": "assets/crazing_1.jpg",
+    "width": 200,
+    "height": 200,
+    "boxes": [
+      {
+        "classId": 0,
+        "x": 0.9999999999999898,
+        "y": 1.0000000000000009,
+        "width": 191,
+        "height": 192
+      }
+    ],
+    "provenance": "人工标注；来源为同名标签文件，不是模型输出"
+  },
+  {
+    "id": "scratches_1",
+    "name": "划痕示例",
+    "url": "assets/scratches_1.jpg",
+    "width": 200,
+    "height": 200,
+    "boxes": [
+      {
+        "classId": 3,
+        "x": 25,
+        "y": 10.999999999999998,
+        "width": 17,
+        "height": 159
+      }
+    ],
+    "provenance": "人工标注；来源为同名标签文件，不是模型输出"
+  }
+]
