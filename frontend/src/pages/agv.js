@@ -47,6 +47,9 @@ export default {
     },
   },
   methods: {
+    stationArt(s) {
+      return ({source:'307 394 258 44',processing:'620 374 181 56',inspection:'848 374 190 56',review:'1092 374 160 56',home:'355 614 230 46',charging:'690 610 232 52',maintenance:'1020 610 224 52'})[s.id];
+    },
     station(id) {
       return this.map?.stations.find((s) => s.id === id)?.name || id;
     },
@@ -271,7 +274,7 @@ export default {
             <svg
               class="factory-map"
               :viewBox="'0 0 '+map.cols*32+' '+map.rows*32"
-              preserveAspectRatio="none"
+              preserveAspectRatio="xMidYMid meet"
               role="img"
               aria-label="工厂地图，包含加工、检测、复检与充电工位"
             >
@@ -355,12 +358,13 @@ export default {
                     <path fill="#4d455d" d="M5 21h94v25H5z"/><path fill="#e6b9b1" d="M10 24h84v17H10z"/><path fill="#38516c" d="M18 16h35v23H18z"/><path fill="#8adee8" d="M23 20h25v13H23z"/><path fill="#f8c374" d="M61 17h23v22H61z"/>
                   </template>
                 </g>
-                <rect :x="s.x*32+8" :y="(s.y+s.h)*32-27" :width="s.w*32-16" height="20" fill="#e9dceb" stroke="#625575" stroke-width="1" opacity=".94" />
+                <svg :x="s.x*32+5" :y="s.y*32+15" :width="s.w*32-10" :height="s.h*32-41" :viewBox="stationArt(s)" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><image href="assets/design-agv.png" width="1672" height="941" /></svg>
+                <rect :x="s.x*32+8" :y="(s.y+s.h)*32-27" :width="s.w*32-16" height="20" fill="#303f66" stroke="#87c8ed" stroke-width="1" />
                 <text
                   :x="(s.x+s.w/2)*32"
                   :y="(s.y+s.h)*32-12"
                   text-anchor="middle"
-                  fill="#302943"
+                  fill="#f7f2ff"
                   font-size="12"
                   font-weight="800"
                 >
@@ -475,7 +479,7 @@ export default {
           </div>
           <template v-if="active"
             ><div class="vehicle-portrait">
-              <app-icon name="agv" :size="48" /><span>{{active.id}}</span
+              <pixel-art scene="agv" /><span>{{active.id}}</span
               ><small>{{active.status}}</small>
             </div>
             <div class="meter-label">

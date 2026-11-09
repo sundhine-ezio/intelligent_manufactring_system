@@ -9,37 +9,8 @@ export default {
       ><span class="pill">前端演示版 v1.0</span></page-head
     >
     <section class="home-intro">
-      <div>
-        <span class="overline">知造 · SMART FACTORY</span>
-        <h2>从感知到决策，连接制造现场</h2>
-        <p>围绕物流、质量、设备、订单与能源，探索智能工厂的五个业务模块。</p>
-        <router-link to="/agv" class="btn btn-primary"
-          >进入调度工作台 <app-icon name="arrow" :size="17"
-        /></router-link>
-      </div>
-      <div class="factory-mark" aria-hidden="true">
-        <svg viewBox="0 0 310 150">
-          <g fill="none" stroke="#9db5d7" stroke-width="1.3">
-            <path
-              d="M15 110l130 25 145-47-130-24zM45 105V52l55 12v53M45 52l48-16 55 12-48 16m48-16v51M160 106V51l62 13v22M160 51l44-15 62 13-44 15m44-15v22M70 60V28l12 3v32M195 57V20l12 3v37"
-            />
-            <path
-              d="M58 77l27 6m-27 7 27 6M174 75l30 6m-30 7 30 6M23 123l122 24 150-49"
-              stroke-dasharray="4 5"
-            />
-          </g>
-          <g fill="#4778bd">
-            <circle cx="145" cy="135" r="4" />
-            <circle cx="45" cy="105" r="3" />
-            <circle cx="266" cy="71" r="3" />
-          </g>
-        </svg>
-      </div>
+      <pixel-art scene="factory" />
     </section>
-      <div class="section-heading">
-      <h2>智能工厂功能模块 <span>MODULES</span></h2>
-      <span class="muted">按任务进入，独立演示</span>
-    </div>
     <div class="module-grid">
       <router-link
         v-for="(m,i) in modules"
@@ -51,7 +22,7 @@ export default {
             ><app-icon :name="m.icon" :size="25" /></span
           ><span class="module-num">0{{i+1}}</span>
         </div>
-        <div class="module-scene" aria-hidden="true"><img :src="'assets/scene-'+m.icon+'.svg'" alt="" /></div>
+        <div class="module-scene" aria-hidden="true"><pixel-art :scene="m.icon" /></div>
         <h3>{{m.name}} <span v-if="m.path==='/monitor'" class="module-pending">规划中</span></h3>
         <p>{{m.desc}}</p>
         <div class="module-bottom">

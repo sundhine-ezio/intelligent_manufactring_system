@@ -9,7 +9,7 @@ export const Monitor = {
       <span class="icon-tile violet"
         ><app-icon name="monitor" :size="34" /></span
       ><span class="pill neutral">规划中</span>
-      <div class="monitor-scene" role="img" aria-label="像素风设备、工人与厂房场景"></div>
+      <div class="monitor-scene"><pixel-art scene="monitor-hero" /></div>
       <h2>等待接入设备运行数据</h2>
       <p>
         当前目录中的缺陷图片与销量数据无法直接用于设备状态监测。<br />该模块需要另行确定传感器指标、数据来源和状态判断规则。
@@ -101,7 +101,7 @@ export const Help = {
         </div>
       </div>
     </section></div>
-    <div class="guide-conveyor" role="img" aria-label="像素风流水线、货箱和自动搬运车装饰"></div>
+    <div class="guide-conveyor"><pixel-art scene="conveyor" /></div>
     <section class="info-strip">
       <app-icon name="file" /><span
         >项目中的 README.md、docs/API.md 和 docs/DEMO.md
